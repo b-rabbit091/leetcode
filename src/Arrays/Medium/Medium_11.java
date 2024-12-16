@@ -1,4 +1,4 @@
-package src.Arrays;
+package src.Arrays.Medium;
 
 import static java.lang.Math.min;
 

@@ -1,4 +1,4 @@
-package src.Arrays;
+package src.Arrays.Medium;
 
 import java.util.*;
 
