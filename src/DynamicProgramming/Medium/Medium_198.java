@@ -19,7 +19,7 @@ Output: 12
 Explanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (money = 1).
 Total amount you can rob = 2 + 9 + 1 = 12.
 * */
-public class Easy_198 {
+public class Medium_198 {
 
     public long solution(int[] houses, int house_number, long[] memo) {
         if (houses.length == 1) {
@@ -55,7 +55,7 @@ public class Easy_198 {
 
     public static void main(String[] args) {
         int[] houses = {0};
-        Easy_198 obj = new Easy_198();
+        Medium_198 obj = new Medium_198();
         System.out.println(obj.rob(houses));
 
     }
