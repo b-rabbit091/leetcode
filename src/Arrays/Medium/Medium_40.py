@@ -41,8 +41,9 @@ class Solution:
         if target < 0:
             return
         for i in range(index, len(candidates)):
-            if i + 1 < len(candidates) and candidates[i] == candidates[i + 1]:
+            if i > index and candidates[i] == candidates[i-1]:
                 continue
+
             if target - candidates[i] >= 0:
                 res.append(candidates[i])
                 self.recursionSolution(candidates, target - candidates[i], res, fin, i + 1)
