@@ -34,7 +34,6 @@ from typing import List
 class Solution:
 
     def recursionSolution(self, candidates, target, res, fin, index):
-
         if target == 0:
             fin.add(tuple(res.copy()))
             return
@@ -43,25 +42,19 @@ class Solution:
         for i in range(index, len(candidates)):
             if i > index and candidates[i] == candidates[i-1]:
                 continue
-
             if target - candidates[i] >= 0:
                 res.append(candidates[i])
                 self.recursionSolution(candidates, target - candidates[i], res, fin, i + 1)
-
                 res.pop()
-
         return
-
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
         res = []
         fin = set()
         index = 0
         candidates.sort()
-        if sum(candidates) == target:
-            return [candidates]
+
         self.recursionSolution(candidates, target, res, fin, index)
         result = [list(t) for t in fin]
-
         return result
 
 
