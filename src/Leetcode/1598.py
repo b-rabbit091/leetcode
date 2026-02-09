@@ -27,8 +27,9 @@ class Solution:
     def minOperations(self, logs: List[str]) -> int:
         stack = []
         for log in logs:
-            if log == "../" and len(stack) != 0:
-                stack.pop()
+            if log == "../":
+                if len(stack) != 0:
+                    stack.pop()
             elif log == "./":
                 pass
             else:
@@ -37,5 +38,5 @@ class Solution:
 
 
 sol = Solution()
-logs = ["d1/", "d2/", "../", "d21/", "./"]
+logs = ["./", "../", "./"]
 print(sol.minOperations(logs))
