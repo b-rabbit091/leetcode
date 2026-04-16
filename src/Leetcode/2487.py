@@ -42,28 +42,31 @@ def build_linked_list(arr: list):
 def traverse(l: ListNode):
     while l:
         print(l.val)
-        l=l.next
+        l = l.next
 
 
 class Solution:
     def removeNodes(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        prior, header = None, None
+        stk = []
         curr = head
         while curr:
-            new = curr.next
-            while new and new.val <= curr.val:
-                new = new.next
-            if not header:
-                header = curr
-            if prior:
-                prior.next = new
-            prior = curr
-            curr = new
+            if len(stk) == 0:
+                stk.append(curr)
+            else:
+                while len(stk) >= 1 and stk[len(stk) - 1].val < curr.val:
+                    stk.pop()
+                if len(stk) > 0:
+                    stk[len(stk) - 1].next = curr
+                stk.append(curr)
+            curr = curr.next
+        header = None
+        while stk:
+            header = stk.pop()
         return header
 
 
 head = [1,1,1,1]
 head = build_linked_list(head)
 sol = Solution()
-l=sol.removeNodes(head)
+l = sol.removeNodes(head)
 traverse(l)
